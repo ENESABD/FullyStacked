@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GiftList API Tester</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>GiftList API Tester</h1>
+        
+        <div class="token-section">
+            <label for="token">Bearer Token:</label>
+            <input type="text" id="token" placeholder="Login to get token">
+            <button onclick="clearToken()">Clear</button>
+        </div>
+
+        <div class="endpoints">
+            <div class="category">
+                <h2>Health</h2>
+                <button onclick="callEndpoint('GET', '/health')">GET /health</button>
+            </div>
+
+            <div class="category">
+                <h2>Authentication</h2>
+                <button onclick="callEndpoint('POST', '/auth/register', ['name', 'email', 'password'])">POST /auth/register</button>
+                <button onclick="callEndpoint('POST', '/auth/login', ['email', 'password'])">POST /auth/login</button>
+                <button onclick="callEndpoint('GET', '/auth/me', [], true)">GET /auth/me</button>
+            </div>
+
+            <div class="category">
+                <h2>Recipients</h2>
+                <button onclick="callEndpoint('GET', '/recipients', [], true)">GET /recipients</button>
+                <button onclick="callEndpoint('GET', '/recipients/:id', ['id'], true)">GET /recipients/:id</button>
+                <button onclick="callEndpoint('POST', '/recipients', ['name', 'relationship', 'notes'], true)">POST /recipients</button>
+                <button onclick="callEndpoint('PUT', '/recipients/:id', ['id', 'name', 'relationship', 'notes'], true)">PUT /recipients/:id</button>
+                <button onclick="callEndpoint('DELETE', '/recipients/:id', ['id'], true)">DELETE /recipients/:id</button>
+            </div>
+
+            <div class="category">
+                <h2>Gifts</h2>
+                <button onclick="callEndpoint('GET', '/gifts', [], true)">GET /gifts</button>
+                <button onclick="callEndpoint('GET', '/gifts?recipientId=:recipientId', ['recipientId'], true)">GET /gifts?recipientId=:id</button>
+                <button onclick="callEndpoint('GET', '/recipients/:recipientId/gifts', ['recipientId'], true)">GET /recipients/:id/gifts</button>
+                <button onclick="callEndpoint('GET', '/gifts/:id', ['id'], true)">GET /gifts/:id</button>
+                <button onclick="callEndpoint('POST', '/gifts', ['recipient_id', 'name', 'description', 'price', 'url', 'purchased'], true)">POST /gifts</button>
+                <button onclick="callEndpoint('PUT', '/gifts/:id', ['id', 'name', 'description', 'price', 'url', 'purchased'], true)">PUT /gifts/:id</button>
+                <button onclick="callEndpoint('DELETE', '/gifts/:id', ['id'], true)">DELETE /gifts/:id</button>
+            </div>
+        </div>
+
+        <div id="form-container"></div>
+        <div id="response-container"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
