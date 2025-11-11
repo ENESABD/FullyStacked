@@ -25,7 +25,6 @@ Built with PHP + MySQL + JWT Authentication
 
 # Overview
 
-- **Base URL**: `http://localhost:8000`
 - **Authentication**: Bearer Token (JWT)
 - **Content-Type**: `application/json`
 - **Total Endpoints**: 16
@@ -151,6 +150,8 @@ Invoke-RestMethod -Uri "http://localhost:8000/auth/login" `
 Authorization: Bearer YOUR_JWT_TOKEN
 ```
 
+---
+
 **Response** (200 OK):
 
 ```json
@@ -169,11 +170,15 @@ Authorization: Bearer YOUR_JWT_TOKEN
 
 # 🎯 Recipients Endpoints
 
+---
+
 ## GET /recipients
 
 **Description**: Get all recipients for the authenticated user
 
 **Authentication**: ✅ Required
+
+---
 
 **Response** (200 OK):
 
@@ -204,6 +209,8 @@ Authorization: Bearer YOUR_JWT_TOKEN
 **URL Parameters**:
 
 - `id` (integer) - Recipient ID
+
+---
 
 **Example**: `GET /recipients/1`
 
@@ -329,6 +336,8 @@ Invoke-RestMethod -Uri "http://localhost:8000/recipients" `
 ---
 
 # 🎁 Gifts Endpoints
+
+---
 
 ## GET /gifts
 
@@ -488,5 +497,3 @@ Invoke-RestMethod -Uri "http://localhost:8000/recipients" `
   }
 }
 ```
-
----
